@@ -2,22 +2,23 @@ package a;
 
 public class Input extends Port{
 	
-	public Input(Port p) throws wrongPortTypeException{
+	public Input(Port p) throws WrongPortTypeException{
 		if (p instanceof Input){
-			throw wrongPortTypeException;
+			throw new WrongPortTypeException();
 		}
 		else{
 			connection = p;
 		}
 	}
 	
-	public void connect(Port p) throws wongPortTypeException{
+	public void connect(Port p) throws WrongPortTypeException{
 		if (p instanceof Input){
-			throw wrongPortTypeException;
+			throw new WrongPortTypeException();
 		}
 		else{
 			connection = p;
 		}
 	}
+
 	
 }
