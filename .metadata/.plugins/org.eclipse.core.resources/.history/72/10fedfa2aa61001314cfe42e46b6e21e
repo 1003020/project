@@ -1,0 +1,48 @@
+package a;
+
+import java.awt.geom.Point2D;
+
+public class ComponentStorageUnit {
+	
+	private Component component;
+	private Point2D topCorner;
+	private Point2D bottomCorner;
+	private int identifier;
+	
+	public ComponentStorageUnit(Component c, Point2D tc, Point2D bc, int id){
+		component = new Component(c);
+		topCorner = tc;
+		
+	}
+	
+	
+	public Component getComponent() {
+		return component;
+	}
+	public void setComponent(Component component) {
+		this.component = component;
+	}
+	
+	public Point2D getTopCorner() {
+		return topCorner;
+	}
+	public void setTopCorner(Point2D topCorner) {
+		this.topCorner = topCorner;
+	}
+	
+	public Point2D getBottomCorner() {
+		return bottomCorner;
+	}
+	public void setBottomCorner(Point2D bottomCorner) {
+		this.bottomCorner = bottomCorner;
+	}
+	
+	public int getIdentifier() {
+		return identifier;
+	}
+	public void setIdentifier(int identifier) {
+		this.identifier = identifier;
+	}
+	
+	
+}

@@ -4,13 +4,13 @@ import java.util.ArrayList;
 
 public class ComponentStorage {
 	
-	private ArrayList<Component> components;
+	private ArrayList<ComponentStorageUnit> components;
 	
 	public ComponentStorage(){
-		components = new ArrayList<Component>();
+		components = new ArrayList<ComponentStorageUnit>();
 	}
 	
-	public int add(Component c){
+	public int add(ComponentStorageUnit c){
 		int index = components.size();
 		components.add(c);
 		return index;

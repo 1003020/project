@@ -1,0 +1,12 @@
+package a;
+
+public abstract class Port {
+	
+	protected Port connection;
+	
+	public Port(){
+		connection = null;
+	}
+	
+	public abstract void connect(Port p) throws WrongPortTypeException;
+}

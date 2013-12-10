@@ -5,6 +5,12 @@ public class Component {
 	private ArrayList<Port> inputs;
 	private ArrayList<Port> outputs;
 	
+	public Component(Component c){
+		this.inputs = c.getInputs();
+		this.outputs = c.getOutputs();
+	}
+	
+	
 	public void update(){}
 	
 	public String toString(){
@@ -20,6 +26,26 @@ public class Component {
 		a += "\n";
 		
 		return a;
+	}
+
+
+	public ArrayList<Port> getInputs() {
+		return inputs;
+	}
+
+
+	public void setInputs(ArrayList<Port> inputs) {
+		this.inputs = inputs;
+	}
+
+
+	public ArrayList<Port> getOutputs() {
+		return outputs;
+	}
+
+
+	public void setOutputs(ArrayList<Port> outputs) {
+		this.outputs = outputs;
 	}
 	
 	
