@@ -110,3 +110,166 @@ Binding(CTRL+D,
 		,,true),null),
 	org.eclipse.ui.defaultAcceleratorConfiguration,
 	org.eclipse.ui.textEditorScope,,,system)
+!SESSION 2014-02-04 13:31:25.836 -----------------------------------------------
+eclipse.buildId=4.3.0.I20130605-2000
+java.version=1.7.0_51
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_GB
+Framework arguments:  -product org.eclipse.epp.package.standard.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.standard.product
+
+!ENTRY org.eclipse.jface 2 0 2014-02-04 13:42:20.772
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2014-02-04 13:42:20.772
+!MESSAGE A conflict occurred for CTRL+D:
+Binding(CTRL+D,
+	ParameterizedCommand(Command(org.eclipse.debug.ui.commands.eof,EOF,
+		Send end of file,
+		Category(org.eclipse.debug.ui.category.run,Run/Debug,Run/Debug command category,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@48f11ae0,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.debug.ui.console,,,system)
+Binding(CTRL+D,
+	ParameterizedCommand(Command(org.eclipse.ui.edit.text.delete.line,Delete Line,
+		Delete a line of text,
+		Category(org.eclipse.ui.category.textEditor,Text Editing,Text Editing Commands,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@4d1b8d89,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.textEditorScope,,,system)
+!SESSION 2014-02-04 14:48:21.100 -----------------------------------------------
+eclipse.buildId=4.3.0.I20130605-2000
+java.version=1.7.0_51
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_GB
+Framework arguments:  -product org.eclipse.epp.package.standard.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.standard.product
+
+!ENTRY org.eclipse.core.resources 4 2 2014-02-04 15:52:44.938
+!MESSAGE Problems occurred when invoking code from plug-in: "org.eclipse.core.resources".
+!STACK 1
+org.eclipse.core.runtime.CoreException: Error saving build states
+	at org.eclipse.jdt.internal.core.JavaModelManager.saving(JavaModelManager.java:4304)
+	at org.eclipse.core.internal.resources.SaveManager.executeLifecycle(SaveManager.java:383)
+	at org.eclipse.core.internal.resources.SaveManager$1.run(SaveManager.java:192)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.resources.SaveManager.broadcastLifecycle(SaveManager.java:195)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1130)
+	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2376)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor$5.run(IDEWorkbenchAdvisor.java:508)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+Contains: Error saving last build state for project a
+java.io.IOException: Disk quota exceeded
+	at java.io.FileOutputStream.close0(Native Method)
+	at java.io.FileOutputStream.close(FileOutputStream.java:393)
+	at java.io.FilterOutputStream.close(FilterOutputStream.java:160)
+	at java.io.FilterOutputStream.close(FilterOutputStream.java:160)
+	at org.eclipse.jdt.internal.core.JavaModelManager.saveBuiltState(JavaModelManager.java:3954)
+	at org.eclipse.jdt.internal.core.JavaModelManager.saveState(JavaModelManager.java:3930)
+	at org.eclipse.jdt.internal.core.JavaModelManager.saving(JavaModelManager.java:4294)
+	at org.eclipse.core.internal.resources.SaveManager.executeLifecycle(SaveManager.java:383)
+	at org.eclipse.core.internal.resources.SaveManager$1.run(SaveManager.java:192)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.resources.SaveManager.broadcastLifecycle(SaveManager.java:195)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1130)
+	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2376)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor$5.run(IDEWorkbenchAdvisor.java:508)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+!SUBENTRY 1 org.eclipse.jdt.core 4 4 2014-02-04 15:52:44.940
+!MESSAGE Error saving build states
+!SUBENTRY 2 org.eclipse.jdt.core 4 2 2014-02-04 15:52:44.940
+!MESSAGE Error saving last build state for project a
+!STACK 0
+java.io.IOException: Disk quota exceeded
+	at java.io.FileOutputStream.close0(Native Method)
+	at java.io.FileOutputStream.close(FileOutputStream.java:393)
+	at java.io.FilterOutputStream.close(FilterOutputStream.java:160)
+	at java.io.FilterOutputStream.close(FilterOutputStream.java:160)
+	at org.eclipse.jdt.internal.core.JavaModelManager.saveBuiltState(JavaModelManager.java:3954)
+	at org.eclipse.jdt.internal.core.JavaModelManager.saveState(JavaModelManager.java:3930)
+	at org.eclipse.jdt.internal.core.JavaModelManager.saving(JavaModelManager.java:4294)
+	at org.eclipse.core.internal.resources.SaveManager.executeLifecycle(SaveManager.java:383)
+	at org.eclipse.core.internal.resources.SaveManager$1.run(SaveManager.java:192)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.resources.SaveManager.broadcastLifecycle(SaveManager.java:195)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1130)
+	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2376)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor$5.run(IDEWorkbenchAdvisor.java:508)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+!SUBENTRY 1 org.eclipse.jdt.core 4 2 2014-02-04 15:52:44.940
+!MESSAGE Error saving last build state for project a
+!STACK 0
+java.io.IOException: Disk quota exceeded
+	at java.io.FileOutputStream.close0(Native Method)
+	at java.io.FileOutputStream.close(FileOutputStream.java:393)
+	at java.io.FilterOutputStream.close(FilterOutputStream.java:160)
+	at java.io.FilterOutputStream.close(FilterOutputStream.java:160)
+	at org.eclipse.jdt.internal.core.JavaModelManager.saveBuiltState(JavaModelManager.java:3954)
+	at org.eclipse.jdt.internal.core.JavaModelManager.saveState(JavaModelManager.java:3930)
+	at org.eclipse.jdt.internal.core.JavaModelManager.saving(JavaModelManager.java:4294)
+	at org.eclipse.core.internal.resources.SaveManager.executeLifecycle(SaveManager.java:383)
+	at org.eclipse.core.internal.resources.SaveManager$1.run(SaveManager.java:192)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.resources.SaveManager.broadcastLifecycle(SaveManager.java:195)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1130)
+	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2376)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor$5.run(IDEWorkbenchAdvisor.java:508)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+
+!ENTRY org.eclipse.ui.ide 4 4 2014-02-04 15:52:47.650
+!MESSAGE Problems saving workspace
+
+!ENTRY org.eclipse.ui.ide 2 1 2014-02-04 15:52:47.651
+!MESSAGE Problems occurred while trying to save the state of the workbench.
+!SUBENTRY 1 org.eclipse.core.resources 2 566 2014-02-04 15:52:47.651
+!MESSAGE Problems occurred during save.
+!STACK 1
+org.eclipse.core.runtime.CoreException: Error saving build states
+	at org.eclipse.jdt.internal.core.JavaModelManager.saving(JavaModelManager.java:4304)
+	at org.eclipse.core.internal.resources.SaveManager.executeLifecycle(SaveManager.java:383)
+	at org.eclipse.core.internal.resources.SaveManager$1.run(SaveManager.java:192)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.resources.SaveManager.broadcastLifecycle(SaveManager.java:195)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1130)
+	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2376)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor$5.run(IDEWorkbenchAdvisor.java:508)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+Contains: Error saving last build state for project a
+java.io.IOException: Disk quota exceeded
+	at java.io.FileOutputStream.close0(Native Method)
+	at java.io.FileOutputStream.close(FileOutputStream.java:393)
+	at java.io.FilterOutputStream.close(FilterOutputStream.java:160)
+	at java.io.FilterOutputStream.close(FilterOutputStream.java:160)
+	at org.eclipse.jdt.internal.core.JavaModelManager.saveBuiltState(JavaModelManager.java:3954)
+	at org.eclipse.jdt.internal.core.JavaModelManager.saveState(JavaModelManager.java:3930)
+	at org.eclipse.jdt.internal.core.JavaModelManager.saving(JavaModelManager.java:4294)
+	at org.eclipse.core.internal.resources.SaveManager.executeLifecycle(SaveManager.java:383)
+	at org.eclipse.core.internal.resources.SaveManager$1.run(SaveManager.java:192)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.resources.SaveManager.broadcastLifecycle(SaveManager.java:195)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1130)
+	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2376)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor$5.run(IDEWorkbenchAdvisor.java:508)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)
+!SUBENTRY 2 org.eclipse.jdt.core 4 4 2014-02-04 15:52:47.651
+!MESSAGE Error saving build states
+!SUBENTRY 3 org.eclipse.jdt.core 4 2 2014-02-04 15:52:47.651
+!MESSAGE Error saving last build state for project a
+!STACK 0
+java.io.IOException: Disk quota exceeded
+	at java.io.FileOutputStream.close0(Native Method)
+	at java.io.FileOutputStream.close(FileOutputStream.java:393)
+	at java.io.FilterOutputStream.close(FilterOutputStream.java:160)
+	at java.io.FilterOutputStream.close(FilterOutputStream.java:160)
+	at org.eclipse.jdt.internal.core.JavaModelManager.saveBuiltState(JavaModelManager.java:3954)
+	at org.eclipse.jdt.internal.core.JavaModelManager.saveState(JavaModelManager.java:3930)
+	at org.eclipse.jdt.internal.core.JavaModelManager.saving(JavaModelManager.java:4294)
+	at org.eclipse.core.internal.resources.SaveManager.executeLifecycle(SaveManager.java:383)
+	at org.eclipse.core.internal.resources.SaveManager$1.run(SaveManager.java:192)
+	at org.eclipse.core.runtime.SafeRunner.run(SafeRunner.java:42)
+	at org.eclipse.core.internal.resources.SaveManager.broadcastLifecycle(SaveManager.java:195)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1130)
+	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2376)
+	at org.eclipse.ui.internal.ide.application.IDEWorkbenchAdvisor$5.run(IDEWorkbenchAdvisor.java:508)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:121)

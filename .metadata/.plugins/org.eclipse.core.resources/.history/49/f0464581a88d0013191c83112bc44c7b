@@ -20,14 +20,6 @@ public class ComponentStorage {
 		return numbersInUse.size();
 	}
 	
-	public Integer addComponent(Component c, Integer k){
-		components.put(k, c);
-		numbersInUse.add(k);
-		c.setIdentifier(k);
-		return k;
-	}
-	
-	
 	public Component getComponent(Integer k){
 		return components.get(k);
 	}

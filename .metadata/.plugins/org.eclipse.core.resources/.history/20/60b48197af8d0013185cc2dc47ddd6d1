@@ -14,7 +14,6 @@ import a.Component;
 import a.ComponentStorage;
 import a.Gate;
 import a.Signal;
-import a.Wire;
 
 public class FileRead {
 	
@@ -73,7 +72,7 @@ public class FileRead {
 		return g;
 	}
 	
-	public static ComponentStorage loadCircuit(String fileName, HashMap<String, Gate> gates){
+	public static ComponentStorage loadCircuit(String fileName){
 		ComponentStorage c = new ComponentStorage();
 		File circuit = new File("./Circuits/" + fileName);
 		Scanner s = null;
@@ -82,41 +81,6 @@ public class FileRead {
 		} catch (FileNotFoundException e) {
 		}
 		
-		int id;
-		String name;
-		Component g;
-		
-		while(s.hasNext()){
-			id = s.nextInt();
-			name = s.next();
-			if (name.equals("Wire")){
-				g = new Wire(id);
-			}
-			else{
-				g = new Gate(gates.get(name));
-			}
-			c.addComponent(g, id);
-			s.nextLine();
-		}
-		s.close();
-		
-		try{
-			s = new Scanner(new FileInputStream(circuit));
-		} catch (FileNotFoundException e) {
-		}
-		while(s.hasNext()){
-			id = s.nextInt();
-			s.next();
-			g = c.getComponent(id);
-			for(int i = 0; i < g.getOutputNum(); i++){
-				while(!(name = s.next()).equals("end")){
-					id = Integer.parseInt(name);
-					g.connectInput(i, c.getComponent(id).getOutputs()[s.nextInt()]);
-				}
-			}
-		}
-		
-
 		
 		
 		s.close();

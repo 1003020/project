@@ -10,7 +10,6 @@ public class Gate extends Component{
 	private Stack[] logic;
 	private Point2D.Double topLeftCorner;
 	private Point2D.Double bottomRightCorner;
-	int time;
 	
 	public Gate(String name, int id, int inputNum, int outputNum, Point2D.Double topLeft, Point2D.Double bottomRight, Stack[] logic){
 		super(id, inputNum, outputNum);
@@ -28,12 +27,12 @@ public class Gate extends Component{
 	public Gate(Gate g){
 		super(g.getIdentifier(), g.getInputNum(), g.getOutputNum());
 		this.name = g.getName();
-		this.inputNum = g.getInputNum();
-		this.outputNum = g.getOutputNum();
 		for (int i = 0; i<outputNum; i++){
 			outputs[i] = new Signal();
 		}
 		this.logic = g.getLogic();
+		this.inputNum = g.getInputNum();
+		this.outputNum = g.getOutputNum();
 		this.topLeftCorner = g.getTopLeftCorner();
 		this.bottomRightCorner = g.getBottomRightCorner();
 		

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Wire extends Component{
 	private ArrayList<Point2D.Double> path;
 	String name;
+	int time;
 	
 	public Wire(int id){
 		super(id, 1, 1);

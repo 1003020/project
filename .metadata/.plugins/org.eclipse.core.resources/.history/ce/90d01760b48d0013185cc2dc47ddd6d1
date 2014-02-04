@@ -7,10 +7,11 @@ import java.util.ArrayList;
 
 public class Wire extends Component{
 	private ArrayList<Point2D.Double> path;
+	String name;
 	
 	public Wire(int id){
 		super(id, 1, 1);
-		
+		name = "Wire";
 		outputs[0] = new Signal();
 		path = new ArrayList<Point2D.Double>();
 	}
@@ -36,6 +37,16 @@ public class Wire extends Component{
 		}
 	}
 	
+	public void connectInput(int i, Signal s){
+		if(inputs[0].getInput() != null){
+			inputs[0] = s;
+			
+		}
+		else{
+			
+		}
+	}
+	
 	public void addOutput(Component c){
 		outputs[0].connectOutput(c);
 	}
@@ -48,7 +59,9 @@ public class Wire extends Component{
 		outputs[0].disconnectOutput(c);
 	}
 	
-	
+	public String getName(){
+		return name;
+	}
 	
 
 	public ArrayList<Point2D.Double> getPath() {

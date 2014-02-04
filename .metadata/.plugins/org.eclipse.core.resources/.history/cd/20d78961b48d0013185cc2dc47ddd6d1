@@ -10,7 +10,6 @@ public class Gate extends Component{
 	private Stack[] logic;
 	private Point2D.Double topLeftCorner;
 	private Point2D.Double bottomRightCorner;
-	int time;
 	
 	public Gate(String name, int id, int inputNum, int outputNum, Point2D.Double topLeft, Point2D.Double bottomRight, Stack[] logic){
 		super(id, inputNum, outputNum);

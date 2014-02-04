@@ -8,6 +8,7 @@ public class Signal {
 	private boolean binaryValue;
 	
 	public Signal(){
+		identifier = 0;
 		input = null;
 		outputs = new ArrayList<Component>();
 		binaryValue = false;

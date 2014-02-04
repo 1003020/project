@@ -8,20 +8,16 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.regex.*;
-import java.util.HashMap;
 
 import a.Component;
 import a.ComponentStorage;
 import a.Gate;
 import a.Signal;
-import a.Wire;
 
 public class FileRead {
 	
 	public static ArrayList<Gate> readComponentTypes(){
-		HashMap<String, Gate> gates = new HashMap<String, Gate>();
 		ArrayList<Gate> gateTypes = new ArrayList<Gate>();
-		Gate g = null;
 		Pattern p = Pattern.compile(".*~");
 		Matcher m;
 		File gatesfolder = new File("./Gates/");
@@ -29,9 +25,7 @@ public class FileRead {
 		for (File f : gateList){
 			if(f.isFile() && !f.isHidden()){ //If the file isn't a directory or hidden
 				if(!(m = p.matcher(f.getName())).matches()){ //If it doesn't end with a ~
-					g = readGate(f);
-					gateTypes.add(g);
-					gates.put(g.getName(), g);
+					gateTypes.add(readGate(f));
 				}
 				
 			}
@@ -40,13 +34,11 @@ public class FileRead {
 	}
 	
 	private static Gate readGate(File f){
-		
 		Scanner s = null;
 		try {
 			s = new Scanner(new FileInputStream(f));
 		} catch (FileNotFoundException e) {
 		}
-		
 		String name = s.next();
 		int inputNum = s.nextInt();
 		int outputNum = s.nextInt();
@@ -73,53 +65,11 @@ public class FileRead {
 		return g;
 	}
 	
-	public static ComponentStorage loadCircuit(String fileName, HashMap<String, Gate> gates){
+	public static ComponentStorage loadCircuit(String fileName){
 		ComponentStorage c = new ComponentStorage();
-		File circuit = new File("./Circuits/" + fileName);
-		Scanner s = null;
-		try{
-			s = new Scanner(new FileInputStream(circuit));
-		} catch (FileNotFoundException e) {
-		}
-		
-		int id;
-		String name;
-		Component g;
-		
-		while(s.hasNext()){
-			id = s.nextInt();
-			name = s.next();
-			if (name.equals("Wire")){
-				g = new Wire(id);
-			}
-			else{
-				g = new Gate(gates.get(name));
-			}
-			c.addComponent(g, id);
-			s.nextLine();
-		}
-		s.close();
-		
-		try{
-			s = new Scanner(new FileInputStream(circuit));
-		} catch (FileNotFoundException e) {
-		}
-		while(s.hasNext()){
-			id = s.nextInt();
-			s.next();
-			g = c.getComponent(id);
-			for(int i = 0; i < g.getOutputNum(); i++){
-				while(!(name = s.next()).equals("end")){
-					id = Integer.parseInt(name);
-					g.connectInput(i, c.getComponent(id).getOutputs()[s.nextInt()]);
-				}
-			}
-		}
-		
-
 		
 		
-		s.close();
+		
 		return c;
 	}
 	
