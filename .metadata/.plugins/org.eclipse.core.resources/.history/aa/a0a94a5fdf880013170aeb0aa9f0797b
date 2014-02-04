@@ -1,0 +1,19 @@
+package a;
+
+import java.awt.geom.Point2D;
+import java.util.Stack;
+
+public class Simulation {
+
+	public static void main(String[] args) {
+		Gate g = new Gate("a",1,2,1,new Point2D.Double(9.0,0.0), new Point2D.Double(9.0,0.0), new Stack[1]);
+		Wire wire = new Wire(2);
+		Signal s = new Signal();
+		g.connectInput(1, s);
+		g.connectInput(2, s);
+		g.connectInput(3, s);
+		g.connectInput(2, s);
+
+	}
+
+}

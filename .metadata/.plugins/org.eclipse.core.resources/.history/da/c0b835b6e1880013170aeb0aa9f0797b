@@ -1,0 +1,66 @@
+package Parser;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Stack;
+import java.awt.geom.Point2D;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import a.Component;
+import a.Gate;
+import a.Signal;
+
+public class FileRead {
+	
+	public static ArrayList<Component> readComponentTypes(){
+		ArrayList<Component> gateTypes = new ArrayList<Component>();
+		File gatesfolder = new File("./Gates/");
+		Path currentRelativePath = Paths.get("");
+		System.out.println(currentRelativePath.toAbsolutePath().toString());
+		File[] gateList = gatesfolder.listFiles();
+		for (File f : gateList){
+			if(f.isFile()){
+				gateTypes.add(readGate(f));
+			}
+		}
+		return gateTypes;
+	}
+	
+	private static Gate readGate(File f){
+		Scanner s = null;
+		try {
+			s = new Scanner(new FileInputStream(f));
+		} catch (FileNotFoundException e) {
+		}
+		String name = s.next();
+		System.out.println(name);
+		int inputNum = s.nextInt();
+		System.out.println(inputNum);
+		int outputNum = s.nextInt();
+		System.out.println(outputNum);
+		Double x = s.nextDouble();
+		System.out.println(x);
+		Double y = s.nextDouble();
+		System.out.println(y);
+		Point2D.Double dimensions = new Point2D.Double(x,y);
+		Stack[] logic = new Stack[outputNum];
+		for(int i = 0; i<outputNum; i++){
+			logic[i] = new Stack<String>();
+		}
+		String current;
+		for (int i = 0; i< outputNum; i++){
+			while(!(current = s.next()).equals("end")){
+				logic[i].addElement(current);
+				System.out.println(current);
+			}
+		}
+		Gate g = new Gate(name, 1, inputNum, outputNum, new Point2D.Double(0,0), dimensions, logic);
+		
+		s.close();
+		return g;
+	}
+}

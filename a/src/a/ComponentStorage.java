@@ -1,19 +1,26 @@
 package a;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ComponentStorage {
 	
-	private ArrayList<ComponentStorageUnit> components;
+	private ArrayList<Integer> numbersInUse;
+	private HashMap<Integer, Component> components;
 	
 	public ComponentStorage(){
-		components = new ArrayList<ComponentStorageUnit>();
+		numbersInUse = new ArrayList<Integer>();
+		components = new HashMap<Integer, Component>(100);
 	}
 	
-	public int add(ComponentStorageUnit c){
-		int index = components.size();
-		components.add(c);
-		return index;
+	public Integer addComponent(Component c){
+		components.put(numbersInUse.size()+1, c);
+		numbersInUse.add(numbersInUse.size()+1);
+		c.setIdentifier(numbersInUse.size());
+		return numbersInUse.size();
 	}
 	
+	public Component getComponent(Integer k){
+		return components.get(k);
+	}
 }

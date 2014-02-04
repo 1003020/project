@@ -1,7 +1,0 @@
-package a;
-
-public abstract class Port {
-	
-	
-	public abstract void connect(Port p) throws WrongPortTypeException;
-}
