@@ -42,13 +42,6 @@ public class Gate extends Component{
 		this.time = time+1;
 	}
 	
-	public void pulse(){
-		this.runLogic();
-		for(Signal s : outputs){
-			s.update(this.time);
-		}
-	}
-	
 	public void runLogic(){
 		String current;
 		Stack<String> tempLogic = new Stack<String>();

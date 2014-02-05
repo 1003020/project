@@ -4,7 +4,6 @@ import java.util.ArrayList;
 public class Component {
 
 	private int identifier;
-	protected int time;
 	protected Signal[] inputs;
 	protected Signal[] outputs;
 	
@@ -21,7 +20,7 @@ public class Component {
 	}
 	
 	
-	public void update(int time){}
+	public void update(){}
 	
 	public String toString(){
 		

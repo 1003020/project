@@ -14,9 +14,9 @@ public class Signal {
 		binaryValue = false;
 	}
 	
-	public void update(int time){
+	public void update(){
 		for (Component c : outputs){
-			c.update(time);
+			c.update();
 		}
 	}
 	

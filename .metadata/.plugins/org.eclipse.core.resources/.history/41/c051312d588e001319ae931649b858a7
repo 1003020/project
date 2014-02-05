@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Wire extends Component{
 	private ArrayList<Point2D.Double> path;
 	String name;
+	int time;
 	
 	public Wire(int id){
 		super(id, 1, 1);
@@ -21,11 +22,9 @@ public class Wire extends Component{
 		this.path = path;
 	}
 	
-	public void update(int time){
-		outputs[0].setBinaryValue(inputs[0].isBinaryValue());
-		
+	public void update(){
 		for(Signal s : outputs){
-			s.update(time);
+			s.update();
 		}
 	}
 

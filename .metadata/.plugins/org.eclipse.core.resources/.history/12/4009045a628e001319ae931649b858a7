@@ -42,13 +42,6 @@ public class Gate extends Component{
 		this.time = time+1;
 	}
 	
-	public void pulse(){
-		this.runLogic();
-		for(Signal s : outputs){
-			s.update(this.time);
-		}
-	}
-	
 	public void runLogic(){
 		String current;
 		Stack<String> tempLogic = new Stack<String>();
@@ -63,6 +56,7 @@ public class Gate extends Component{
 			
 			while(!tempLogic.isEmpty()){
 				current = (String) tempLogic.pop();
+				System.out.println(current);
 				if (current.equals("or2")){
 					logicBlock[i].push(logicBlock[i].pop() || logicBlock[i].pop());
 				}
@@ -82,7 +76,7 @@ public class Gate extends Component{
 		for(int i = 0; i < outputNum; i++){
 			System.out.println("setting output " + i);
 			System.out.println(logicBlock[i].peek());
-			outputs[i].setBinaryValue(logicBlock[i].peek());
+			//outputs[i].setBinaryValue(logicBlock[i].peek());
 		}
 	}
 	
