@@ -40,6 +40,7 @@ public class Gate extends Component{
 	
 	public void update(int time){
 		this.time = time+1;
+		System.out.println("Gate " + identifier + " of type " + name + " set to time " + this.time);
 	}
 	
 	public void pulse(){
@@ -54,6 +55,8 @@ public class Gate extends Component{
 		Stack<String> tempLogic = new Stack<String>();
 		Stack<Boolean>[] logicBlock = new Stack[outputNum];
 		int index;
+		Boolean value;
+		Boolean value2;
 		//logicBlock[0] = new Stack<Boolean>();
 		//logicBlock[0].push(true);
 		
@@ -72,6 +75,14 @@ public class Gate extends Component{
 				else if(current.equals("inv")){
 					logicBlock[i].push(!logicBlock[i].pop());
 				}
+				else if(current.equals("xor2")){
+					value = logicBlock[i].pop();
+					value2 = logicBlock[i].pop();
+					logicBlock[i].push((value || value2) && !(value && value2));
+				}
+				else if(current.equals("nand2")){
+					logicBlock[i].push(!(logicBlock[i].pop() && logicBlock[i].pop()));
+				}
 				else{
 					index = Integer.parseInt(current);
 					index--;
@@ -80,7 +91,7 @@ public class Gate extends Component{
 			}
 		}
 		for(int i = 0; i < outputNum; i++){
-			System.out.println("setting output " + i);
+			System.out.println("setting output " + i + " of " + name + " gate " + identifier);
 			System.out.println(logicBlock[i].peek());
 			outputs[i].setBinaryValue(logicBlock[i].peek());
 		}
@@ -120,6 +131,12 @@ public class Gate extends Component{
 	
 	public void disconnectOutputs(int index){
 		
+	}
+	
+	public void setPoint(Point2D.Double point){
+		topLeftCorner = point;
+		bottomRightCorner.x = bottomRightCorner.x + point.x;
+		bottomRightCorner.y = bottomRightCorner.y + point.y;
 	}
 	
 	public String getName(){
@@ -170,12 +187,6 @@ public class Gate extends Component{
 		this.name = name;
 	}
 	
-	public int getTime(){
-		return time;
-	}
-	public void setTime(int i){
-		this.time = i;
-	}
 	
 	
 }

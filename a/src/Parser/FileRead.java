@@ -7,6 +7,8 @@ import java.awt.geom.Point2D;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.PrintWriter;
 import java.util.regex.*;
 import java.util.HashMap;
 
@@ -74,7 +76,7 @@ public class FileRead {
 	}
 	
 	public static ComponentStorage loadCircuit(String fileName, HashMap<String, Gate> gates){
-		ComponentStorage c = new ComponentStorage();
+		ComponentStorage c = new ComponentStorage(100);
 		File circuit = new File("./Circuits/" + fileName);
 		Scanner s = null;
 		try{
@@ -85,16 +87,29 @@ public class FileRead {
 		int id;
 		String name;
 		Component g;
+		ArrayList<Point2D.Double> path = new ArrayList<Point2D.Double>();
 		
 		while(s.hasNext()){
 			id = s.nextInt();
 			name = s.next();
 			if (name.equals("Wire")){
 				g = new Wire(id);
+				path = new ArrayList<Point2D.Double>();
+				while(true){
+					if(s.next().equals("point")){
+						path.add(new Point2D.Double(s.nextDouble(),s.nextDouble()));
+					}
+					else{
+						break;
+					}
+					
+				}
 			}
 			else{
 				g = new Gate(gates.get(name));
+				g.setPoint(new Point2D.Double(s.nextDouble(),s.nextDouble()));
 			}
+			
 			c.addComponent(g, id);
 			s.nextLine();
 		}
@@ -121,6 +136,30 @@ public class FileRead {
 		
 		s.close();
 		return c;
+	}
+	
+	public static void save(ComponentStorage c, String fileName){
+		Component g = null;
+		PrintWriter s = null;
+		try{
+			s = new PrintWriter(new FileOutputStream("./Circuits/" + fileName + ".txt"));
+		}catch(Exception e){
+		}
+		
+		Integer[] numbers = (Integer[]) c.getComponents().keySet().toArray();
+		for (Integer i : numbers){
+			g = c.getComponent(i);
+			s.write(i + " ");
+			s.write(g.getName() + " ");
+			for(Signal signal : g.getOutputs()){
+				for(Component component : signal.getOutputs()){
+					s.write(component.getIdentifier() + " ");
+				}
+				s.write("end");
+			}
+		}
+		
+		
 	}
 	
 }

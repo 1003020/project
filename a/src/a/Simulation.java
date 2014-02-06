@@ -12,12 +12,13 @@ public class Simulation {
 	public static void main(String[] args) {
 		Scanner inputScanner = new Scanner(System.in);
 		ArrayList<Component> gatesInUse = new ArrayList<Component>();
-		ComponentStorage gates = new ComponentStorage();
+		ComponentStorage gates = new ComponentStorage(100);
 		int id;
 		int location;
 		String input;
 		int id2;
 		int location2;
+		int count = 0;
 		
 		
 		ArrayList<Gate> gateTypes = FileRead.readComponentTypes();
@@ -88,7 +89,31 @@ public class Simulation {
 				location = inputScanner.nextInt();
 				System.out.println(gates.getComponent(id).getInputs()[location].isBinaryValue());
 			}
-					
+			
+			else if(input.equals("setTime")){
+				gates.getComponent(inputScanner.nextInt()).setTime(inputScanner.nextInt());
+			}
+			else if(input.equals("getTime")){
+				System.out.println(gates.getComponent(inputScanner.nextInt()).getTime());
+			}
+			
+			else if(input.equals("simulate")){
+				count = 0;
+				for(Component c : gates.getComponents().values()){
+					if(c.getTime()== count){
+						c.pulse();
+					}
+				}
+				count++;
+			}
+			else if(input.equals("pulse")){
+				for(Component c : gates.getComponents().values()){
+					if(c.getTime()== count){
+						c.pulse();
+					}
+				}
+				count++;
+			}
 		}
 	}
 

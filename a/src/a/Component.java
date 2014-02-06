@@ -1,9 +1,11 @@
 package a;
-import java.util.ArrayList;
+
+import java.awt.geom.Point2D;
+
 
 public class Component {
 
-	private int identifier;
+	protected int identifier;
 	protected int time;
 	protected Signal[] inputs;
 	protected Signal[] outputs;
@@ -18,6 +20,7 @@ public class Component {
 		identifier = id;
 		inputs = new Signal[inputNum];
 		outputs = new Signal[outputNum];
+		time = -1;
 	}
 	
 	
@@ -36,6 +39,14 @@ public class Component {
 		a += "\n";
 		
 		return a;
+	}
+	
+	public void setPoint(Point2D.Double d){
+		
+	}
+	
+	public void pulse(){
+		
 	}
 
 	public int getIdentifier() {
@@ -78,6 +89,15 @@ public class Component {
 	public int getOutputNum(){
 		return outputs.length;
 	}
+	
+	public int getTime(){
+		return time;
+	}
+	public void setTime(int time){
+		this.time = time;
+	}
+	
+
 
 	
 	

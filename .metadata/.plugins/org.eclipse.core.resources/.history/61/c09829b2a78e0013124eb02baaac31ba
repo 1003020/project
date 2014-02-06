@@ -1,0 +1,78 @@
+package a;
+
+import java.awt.Point;
+import java.awt.geom.Point2D;
+import java.awt.geom.Point2D.Double;
+import java.util.ArrayList;
+
+public class Wire extends Component{
+	private ArrayList<Point2D.Double> path;
+	String name;
+	
+	public Wire(int id){
+		super(id, 1, 1);
+		name = "Wire";
+		outputs[0] = new Signal();
+		path = new ArrayList<Point2D.Double>();
+	}
+	
+	public Wire(int id, ArrayList<Point2D.Double> path){
+		super(id, 1, 1);
+		this.path = path;
+	}
+	
+	public void update(int time){
+		outputs[0].setBinaryValue(inputs[0].isBinaryValue());
+		
+		for(Signal s : outputs){
+			s.update(time);
+		}
+	}
+
+	public void connectInput(Signal s){ //connects a signal to the input
+		if(inputs[0].getInput() != null){
+			inputs[0] = s;
+			
+		}
+		else{
+			
+		}
+	}
+	
+	public void connectInput(int i, Signal s){
+		if(inputs[0].getInput() != null){
+			inputs[0] = s;
+			
+		}
+		else{
+			
+		}
+	}
+	
+	public void addOutput(Component c){
+		outputs[0].connectOutput(c);
+	}
+	
+	public void disconnectOutput(int index){
+		outputs[0].disconnectOutput(index);
+	}
+	
+	public void disconnectOutput(Component c){
+		outputs[0].disconnectOutput(c);
+	}
+	
+	public String getName(){
+		return name;
+	}
+	
+
+	public ArrayList<Point2D.Double> getPath() {
+		return path;
+	}
+
+	public void setPath(ArrayList<Point2D.Double> path) {
+		this.path = path;
+	}
+	
+	
+}

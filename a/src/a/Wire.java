@@ -1,8 +1,7 @@
 package a;
 
-import java.awt.Point;
+
 import java.awt.geom.Point2D;
-import java.awt.geom.Point2D.Double;
 import java.util.ArrayList;
 
 public class Wire extends Component{
@@ -13,39 +12,36 @@ public class Wire extends Component{
 		super(id, 1, 1);
 		name = "Wire";
 		outputs[0] = new Signal();
+		inputs[0] = null;
 		path = new ArrayList<Point2D.Double>();
 	}
 	
 	public Wire(int id, ArrayList<Point2D.Double> path){
 		super(id, 1, 1);
+		name = "Wire";
 		this.path = path;
 	}
 	
 	public void update(int time){
-		outputs[0].setBinaryValue(inputs[0].isBinaryValue());
-		
+		outputs[0].setBinaryValue(inputs[0].isBinaryValue()); //set output equal to input
 		for(Signal s : outputs){
 			s.update(time);
 		}
 	}
-
-	public void connectInput(Signal s){ //connects a signal to the input
-		if(inputs[0].getInput() != null){
-			inputs[0] = s;
-			
-		}
-		else{
-			
-		}
+	
+	public void pulse(){
+		this.update(this.time);
 	}
+
 	
 	public void connectInput(int i, Signal s){
-		if(inputs[0].getInput() != null){
+		if(inputs[0] == null){
 			inputs[0] = s;
+			s.connectOutput(this);
 			
 		}
 		else{
-			
+			System.out.println("input already present");
 		}
 	}
 	
@@ -69,6 +65,7 @@ public class Wire extends Component{
 	public ArrayList<Point2D.Double> getPath() {
 		return path;
 	}
+	
 
 	public void setPath(ArrayList<Point2D.Double> path) {
 		this.path = path;

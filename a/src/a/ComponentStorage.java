@@ -5,24 +5,28 @@ import java.util.HashMap;
 
 public class ComponentStorage {
 	
-	private ArrayList<Integer> numbersInUse;
+	private ArrayList<Integer> unusedNumbers;
 	private HashMap<Integer, Component> components;
 	
-	public ComponentStorage(){
-		numbersInUse = new ArrayList<Integer>();
-		components = new HashMap<Integer, Component>(100);
+	public ComponentStorage(int size){
+		unusedNumbers = new ArrayList<Integer>();
+		components = new HashMap<Integer, Component>(size);
+		for(Integer i = 1; i<=size; i++){
+			unusedNumbers.add(i);
+		}
 	}
 	
 	public Integer addComponent(Component c){
-		components.put(numbersInUse.size()+1, c);
-		numbersInUse.add(numbersInUse.size()+1);
-		c.setIdentifier(numbersInUse.size());
-		return numbersInUse.size();
+		Integer id = unusedNumbers.get(0);
+		unusedNumbers.remove(0);
+		c.setIdentifier(id);
+		components.put(id, c);
+		return id;
 	}
 	
 	public Integer addComponent(Component c, Integer k){
 		components.put(k, c);
-		numbersInUse.add(k);
+		unusedNumbers.remove(k);
 		c.setIdentifier(k);
 		return k;
 	}
@@ -30,5 +34,13 @@ public class ComponentStorage {
 	
 	public Component getComponent(Integer k){
 		return components.get(k);
+	}
+	
+	public HashMap<Integer, Component> getComponents(){
+		return components;
+	}
+	
+	public ArrayList<Integer> getNumbersInUse(){
+		return unusedNumbers;
 	}
 }
