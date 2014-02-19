@@ -20,7 +20,7 @@ import a.Wire;
 
 public class FileRead {
 	
-	public static ArrayList<Gate> readComponentTypes(){
+	public static HashMap<String, Gate> readComponentTypes(){
 		HashMap<String, Gate> gates = new HashMap<String, Gate>();
 		ArrayList<Gate> gateTypes = new ArrayList<Gate>();
 		Gate g = null;
@@ -38,7 +38,7 @@ public class FileRead {
 				
 			}
 		}
-		return gateTypes;
+		return gates;
 	}
 	
 	private static Gate readGate(File f){

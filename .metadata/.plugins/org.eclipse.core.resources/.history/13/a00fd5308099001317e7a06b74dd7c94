@@ -1,0 +1,12 @@
+package a;
+
+import java.util.ArrayList;
+
+public class SimulationTableEntry {
+	private ArrayList<Component> inputs;
+	private ArrayList<Component> outputs;
+	
+	public SimulationTableEntry(ComponentStorage c){
+		for (String s)
+	}
+}

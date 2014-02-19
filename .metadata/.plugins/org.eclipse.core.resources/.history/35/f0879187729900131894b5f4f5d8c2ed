@@ -34,8 +34,7 @@ public class Simulation {
 			input = inputScanner.next();
 			if(input.equals("exit")){
 				inputScanner.close();
-				break
-				;
+				break;
 			}
 			else if(input.equals("add")){
 				input = inputScanner.next();
@@ -46,12 +45,10 @@ public class Simulation {
 				location = gates.addComponent(new Wire(1));
 				System.out.println("Wire added with key " + location);
 			}
-			
 			else if (input.equals("get")){
 				id = inputScanner.nextInt();
 				System.out.println("Component " + gates.getComponent(id).getName() + " with key " + id);
 			}
-			
 			else if(input.equals("connectInput")){
 				id = inputScanner.nextInt();
 				location = inputScanner.nextInt();
