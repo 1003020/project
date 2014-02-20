@@ -90,6 +90,10 @@ public class Component {
 		return outputs.length;
 	}
 	
+	public int getInputNum(){
+		return inputs.length;
+	}
+	
 	public int getTime(){
 		return time;
 	}

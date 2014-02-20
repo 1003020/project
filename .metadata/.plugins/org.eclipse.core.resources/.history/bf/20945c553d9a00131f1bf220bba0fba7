@@ -125,12 +125,6 @@ public class Simulation {
 				}
 				count++;
 			}
-			
-			else if(input.equals("load")){
-				input = inputScanner.next();
-				gates = FileRead.loadCircuit(input, gateTypes);
-			}
-			
 		}
 	}
 

@@ -39,8 +39,11 @@ public class Gate extends Component{
 	}
 	
 	public void update(int time){
-		this.time = time+1;
-		System.out.println("Gate " + identifier + " of type " + name + " set to time " + this.time);
+		if(this.time == -1){
+			this.time = time+1;
+			System.out.println("Gate " + identifier + " of type " + name + " set to time " + this.time);
+		}
+		
 	}
 	
 	public void pulse(){
@@ -59,6 +62,7 @@ public class Gate extends Component{
 		Boolean value2;
 		//logicBlock[0] = new Stack<Boolean>();
 		//logicBlock[0].push(true);
+		
 		
 		for(int i = 0; i < outputNum; i++){
 			logicBlock[i] = new Stack<Boolean>();

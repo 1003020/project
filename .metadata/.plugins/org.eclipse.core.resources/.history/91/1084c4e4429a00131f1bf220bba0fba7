@@ -124,9 +124,11 @@ public class FileRead {
 			s.next();
 			s.nextDouble(); s.nextDouble();
 			g = c.getComponent(id);
-			for(int i = 0; i < g.getInputNum(); i++){
-					id = s.nextInt();
-					g.connectInput(i, c.getComponent(id).getOutputs()[s.nextInt()-1]);
+			for(int i = 0; i < g.getOutputNum(); i++){
+				
+					id = Integer.parseInt(name);
+					g.connectInput(i, c.getComponent(id).getOutputs()[s.nextInt()]);
+				
 			}
 		}
 		

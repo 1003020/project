@@ -20,7 +20,6 @@ public class Simulation {
 		int id2;
 		int location2;
 		int count = 0;
-		boolean updated;
 		
 		
 		HashMap<String, Gate> gateTypes = FileRead.readComponentTypes();
@@ -104,18 +103,12 @@ public class Simulation {
 			
 			else if(input.equals("simulate")){
 				count = 0;
-				updated = true;
-				while(updated){
-					updated = false;
-					for(Component c : gates.getComponents().values()){
-						if(c.getTime()== count){
-							updated = true;
-							c.pulse();
-						}
+				for(Component c : gates.getComponents().values()){
+					if(c.getTime()== count){
+						c.pulse();
 					}
-					count++;
 				}
-				
+				count++;
 			}
 			else if(input.equals("pulse")){
 				for(Component c : gates.getComponents().values()){
@@ -125,12 +118,6 @@ public class Simulation {
 				}
 				count++;
 			}
-			
-			else if(input.equals("load")){
-				input = inputScanner.next();
-				gates = FileRead.loadCircuit(input, gateTypes);
-			}
-			
 		}
 	}
 
