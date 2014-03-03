@@ -27,18 +27,8 @@ public class Signal {
 		}
 	}
 	
-	public void propagate(){
-		for (Component c : outputs){
-			if(c.getName().equals("Wire")){
-				c.propagate();
-			}
-		}
-	}
-	
 	public void setup(int i){
-		for (Component c : outputs){
-			c.setup(i);
-		}
+		
 	}
 	
 	public void connectInput(Component c){

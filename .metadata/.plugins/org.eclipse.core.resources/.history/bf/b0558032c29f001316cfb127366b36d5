@@ -33,13 +33,6 @@ public class Wire extends Component{
 		outputs[0].setup(i);
 	}
 	
-	public void propagate(){
-		outputs[0].setBinaryValue(inputs[0].isBinaryValue());
-		for(Signal s : outputs){
-			s.propagate();
-		}
-	}
-	
 	public void pulse(){
 		this.update(this.time);
 	}

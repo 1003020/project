@@ -25,11 +25,18 @@ public class Component {
 	
 	
 	public void update(int i){
-		
-	}
-	
-	public void propagate(){
-		
+		boolean b = true;
+		for (Signal s : inputs){
+			if(s.getInput().getTime() == 0){
+				b = false;
+			}
+		}
+		if (this.time == 0 && b){
+			time = i + 1;
+			for(Signal s : outputs){
+				s.setup(this.time);
+			}
+		}
 	}
 	
 	public String toString(){

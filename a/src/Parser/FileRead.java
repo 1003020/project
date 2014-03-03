@@ -25,12 +25,11 @@ public class FileRead {
 		ArrayList<Gate> gateTypes = new ArrayList<Gate>();
 		Gate g = null;
 		Pattern p = Pattern.compile(".*~");
-		Matcher m;
 		File gatesfolder = new File("./Gates/");
 		File[] gateList = gatesfolder.listFiles();
 		for (File f : gateList){
 			if(f.isFile() && !f.isHidden()){ //If the file isn't a directory or hidden
-				if(!(m = p.matcher(f.getName())).matches()){ //If it doesn't end with a ~
+				if(!(p.matcher(f.getName())).matches()){ //If it doesn't end with a ~
 					g = readGate(f);
 					gateTypes.add(g);
 					gates.put(g.getName(), g);

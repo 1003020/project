@@ -59,16 +59,13 @@ public class Gate extends Component{
 			}
 
 		}
-		else if(this.name.equals("dff")){
-			this.time = -2;
-		}
 		else{
 			for (Signal s : inputs){
-				if(s.getInput().getTime() == -1){
+				if(s.getInput().getTime() == 0){
 					b = false;
 				}
 			}
-			if (this.time == -1 && b){
+			if (this.time == 0 && b){
 				time = i + 1;
 				for(Signal s : outputs){
 					s.setup(this.time);
