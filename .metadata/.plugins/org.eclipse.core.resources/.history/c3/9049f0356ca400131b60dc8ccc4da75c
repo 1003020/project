@@ -1,0 +1,9 @@
+package UI;
+
+import java.awt.*;
+
+public class Animation extends Frame{
+	
+	private ApplicationFrame()
+
+}

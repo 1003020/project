@@ -1,0 +1,7 @@
+FullAdder
+3
+2
+100
+100
+xor2 xor2 1 2 3 end
+or2 and2 xor2 1 2 3 and2 1 2 end

@@ -1,16 +1,19 @@
 package a;
 
+import java.awt.*;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Stack;
 
-import Parser.FileRead;;
+import Parser.FileRead;
+import UI.Display;
 
 public class Simulation {
 
 	public static void main(String[] args) {
+		Display d;
 		Scanner inputScanner = new Scanner(System.in);
 		ArrayList<Component> gatesInUse = new ArrayList<Component>();
 		ComponentStorage gates = new ComponentStorage(100);
@@ -129,6 +132,15 @@ public class Simulation {
 			else if(input.equals("load")){
 				input = inputScanner.next();
 				gates = FileRead.loadCircuit(input, gateTypes);
+				
+				for(Component c : gates.getComponents().values()){
+					c.setTime(0);
+				}
+				for(Component c : gates.getComponents().values()){
+					if(c.getName().equals("In")){
+						c.setup(0);
+					}
+				}
 			}
 
 		}

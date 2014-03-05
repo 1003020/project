@@ -11,7 +11,7 @@ public class Gate extends Component{
 	private Point2D.Double topLeftCorner;
 	private Point2D.Double bottomRightCorner;
 	
-	public Gate(String name, int id, int inputNum, int outputNum, Point2D.Double topLeft, Point2D.Double bottomRight, Stack[] logic){
+	public Gate(String name, int id, int inputNum, int outputNum, Point2D.Double topLeft, Point2D.Double size, Stack[] logic){
 		super(id, inputNum, outputNum);
 		this.name = name;
 		for (int i = 0; i<outputNum; i++){
@@ -21,7 +21,7 @@ public class Gate extends Component{
 		this.inputNum = inputNum;
 		this.outputNum = outputNum;
 		topLeftCorner = topLeft;
-		bottomRightCorner = bottomRight;
+		bottomRightCorner = size;
 	}
 	
 	public Gate(Gate g){
@@ -68,7 +68,7 @@ public class Gate extends Component{
 					b = false;
 				}
 			}
-			if (this.time == -1 && b){
+			if (this.time == 0 && b){
 				time = i + 1;
 				for(Signal s : outputs){
 					s.setup(this.time);
@@ -178,8 +178,6 @@ public class Gate extends Component{
 	
 	public void setPoint(Point2D.Double point){
 		topLeftCorner = point;
-		bottomRightCorner.x = bottomRightCorner.x + point.x;
-		bottomRightCorner.y = bottomRightCorner.y + point.y;
 	}
 	
 	public String getName(){
