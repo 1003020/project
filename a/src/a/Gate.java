@@ -1,6 +1,8 @@
 package a;
 
-import java.awt.geom.Point2D;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.*;
 import java.util.Stack;
 
 public class Gate extends Component{
@@ -15,7 +17,7 @@ public class Gate extends Component{
 		super(id, inputNum, outputNum);
 		this.name = name;
 		for (int i = 0; i<outputNum; i++){
-			outputs[i] = new Signal();
+			outputs[i] = new Signal(this);
 		}
 		this.logic = logic;
 		this.inputNum = inputNum;
@@ -49,26 +51,32 @@ public class Gate extends Component{
 	public void setup (int i){
 		boolean b = true;
 		if(this.name.equals("In")){
-			
+			this.time = 0;
 			outputs[0].setup(0);
 			
 		}
 		else if(this.name.equals("Out")){
-			if(time != 0){
+			if(time == -1){
 				time = i + 1;
 			}
 
 		}
 		else if(this.name.equals("dff")){
 			this.time = -2;
+			for (Signal s : outputs){
+				s.setup(time+1);
+			}
 		}
 		else{
 			for (Signal s : inputs){
-				if(s.getInput().getTime() == -1){
-					b = false;
+				if(s != null ){
+					if(s.getInput().getTime() == -1){
+						b = false;
+					}
+					
 				}
 			}
-			if (this.time == 0 && b){
+			if (this.time == -1 && b){
 				time = i + 1;
 				for(Signal s : outputs){
 					s.setup(this.time);
@@ -79,9 +87,14 @@ public class Gate extends Component{
 	}
 	
 	public void propagate(){
-		this.runLogic();
-		for(Signal s : outputs){
-			s.propagate();
+		if(name.equals("In")){
+			
+		}
+		else{
+			this.runLogic();
+			for(Signal s : outputs){
+				s.propagate();
+			}
 		}
 	}
 	
@@ -139,6 +152,13 @@ public class Gate extends Component{
 			outputs[i].setBinaryValue(logicBlock[i].peek());
 		}
 	}
+	
+	public void draw(Graphics2D g){
+		g.draw(new Rectangle2D.Double(topLeftCorner.x,topLeftCorner.y, bottomRightCorner.x, bottomRightCorner.y));
+		g.drawChars(name.toCharArray(), 0, name.length(), (int) (topLeftCorner.x + (bottomRightCorner.x/2) - 20), (int) (topLeftCorner.y + (bottomRightCorner.y/2)));
+	}
+	
+	
 	
 	public void connectInput(int index, Signal s){
 		if(index > inputs.length){

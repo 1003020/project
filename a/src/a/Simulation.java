@@ -13,7 +13,7 @@ import UI.Display;
 public class Simulation {
 
 	public static void main(String[] args) {
-		Display d;
+		Display d = null;
 		Scanner inputScanner = new Scanner(System.in);
 		ArrayList<Component> gatesInUse = new ArrayList<Component>();
 		ComponentStorage gates = new ComponentStorage(100);
@@ -113,20 +113,33 @@ public class Simulation {
 					for(Component c : gates.getComponents().values()){
 						if(c.getTime()== count){
 							updated = true;
-							c.pulse();
+							c.propagate();
 						}
 					}
 					count++;
 				}
 
 			}
-			else if(input.equals("pulse")){
+			else if(input.equals("propagate")){
+				updated = false;
 				for(Component c : gates.getComponents().values()){
 					if(c.getTime()== count){
-						c.pulse();
+						updated = true;
+						c.propagate();
 					}
 				}
 				count++;
+				if(!updated){
+					for(Component c : gates.getComponents().values()){
+						if(c.getTime()== -2){
+							c.propagate();
+						}
+					}
+				}
+				if(d != null){
+					d.repaint();
+				}
+				
 			}
 
 			else if(input.equals("load")){
@@ -134,14 +147,22 @@ public class Simulation {
 				gates = FileRead.loadCircuit(input, gateTypes);
 				
 				for(Component c : gates.getComponents().values()){
-					c.setTime(0);
+					
 				}
 				for(Component c : gates.getComponents().values()){
 					if(c.getName().equals("In")){
 						c.setup(0);
 					}
 				}
+				d = new Display(800,800, gates);
+				d.setVisible(true);
 			}
+			
+			else if(input.equals("reset")){
+				count = 0;
+			}
+			
+			
 
 		}
 	}

@@ -1,6 +1,9 @@
 package a;
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.geom.Point2D;
+import java.util.ArrayList;
 
 
 public class Component {
@@ -48,6 +51,10 @@ public class Component {
 	}
 	
 	public void setPoint(Point2D.Double d){
+		
+	}
+	
+	public void draw(Graphics2D g){
 		
 	}
 	
@@ -108,6 +115,11 @@ public class Component {
 	}
 
 	public void setup(int i) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void setPath(ArrayList<java.awt.geom.Point2D.Double> path) {
 		// TODO Auto-generated method stub
 		
 	}

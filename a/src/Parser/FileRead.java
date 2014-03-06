@@ -103,6 +103,7 @@ public class FileRead {
 					}
 					
 				}
+				g.setPath(path);
 			}
 			else{
 				g = new Gate(gates.get(name));
@@ -120,13 +121,22 @@ public class FileRead {
 		}
 		while(s.hasNext()){
 			id = s.nextInt();
-			s.next();
-			s.nextDouble(); s.nextDouble();
+			
 			g = c.getComponent(id);
+			if(g.getName().equals("Wire")){
+				while(!s.next().equals("end")){
+					
+				}
+			}
+			else{
+				s.next();
+				s.nextDouble(); s.nextDouble();
+			}
 			for(int i = 0; i < g.getInputNum(); i++){
 					id = s.nextInt();
 					g.connectInput(i, c.getComponent(id).getOutputs()[s.nextInt()-1]);
 			}
+			
 		}
 		
 

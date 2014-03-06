@@ -1,7 +1,9 @@
 package a;
 
 
-import java.awt.geom.Point2D;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.geom.*;
 import java.util.ArrayList;
 
 public class Wire extends Component{
@@ -11,7 +13,7 @@ public class Wire extends Component{
 	public Wire(int id){
 		super(id, 1, 1);
 		name = "Wire";
-		outputs[0] = new Signal();
+		outputs[0] = new Signal(this);
 		inputs[0] = null;
 		path = new ArrayList<Point2D.Double>();
 	}
@@ -30,7 +32,10 @@ public class Wire extends Component{
 	}
 	
 	public void setup(int i){
-		outputs[0].setup(i);
+		if(inputs[0].getInput().getTime() != -1){
+			this.time = i;
+			outputs[0].setup(i);
+		}
 	}
 	
 	public void propagate(){
@@ -43,6 +48,20 @@ public class Wire extends Component{
 	public void pulse(){
 		this.update(this.time);
 	}
+	
+	public void draw(Graphics2D g){
+		if(inputs[0].isBinaryValue()){
+			g.setColor(Color.RED);
+		}
+		else{
+			g.setColor(Color.BLACK);
+		}
+		for(int i = 1; i< path.size(); i++){
+			g.drawLine((int)path.get(i-1).x, (int)path.get(i-1).y, (int)path.get(i).x, (int)path.get(i).y);
+		}
+		g.setColor(Color.BLACK);
+	}
+	
 
 	
 	public void connectInput(int i, Signal s){
