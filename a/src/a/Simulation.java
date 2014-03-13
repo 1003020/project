@@ -154,7 +154,7 @@ public class Simulation {
 						c.setup(0);
 					}
 				}
-				d = new Display(800,800, gates);
+				d = new Display(1024,1024, gates);
 				d.setVisible(true);
 			}
 			

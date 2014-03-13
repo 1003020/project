@@ -1,0 +1,31 @@
+1 In 400 50
+2 In 350 50
+3 In 300 50
+4 In 250 50
+5 In 200 50
+6 In 150 50
+7 In 100 50
+8 In 50 50
+9 Wire point 425 100 point 425 150 end 1 1
+10 Wire point 375 100 point 375 150 end 2 1
+11 Wire point 325 100 point 325 150 end 3 1
+12 Wire point 275 100 point 275 150 end 4 1
+13 Wire point 225 100 point 225 150 end 5 1
+14 Wire point 175 100 point 175 150 end 6 1
+15 Wire point 125 100 point 125 150 end 7 1
+16 Wire point 75 100 point 75 150 end 8 1
+17 In 500 175
+18 Wire point 500 200 point 450 200 end 17 1
+19 FullAdder 350 150 18 1 10 1 9 1
+20 FullAdder 250 150 19 2 12 1 11 1
+21 FullAdder 150 150 20 2 14 1 13 1
+22 FullAdder 50 150 21 2 16 1 15 1
+23 Wire point 400 250 point 400 300 end 19 1
+24 Wire point 300 250 point 300 300 end 20 1
+25 Wire point 200 250 point 200 300 end 21 1
+26 Wire point 100 250 point 100 300 end 22 1
+27 Out 375 300 19 1
+28 Out 275 300 20 1
+29 Out 175 300 21 1
+30 Out 75 300 22 1
+31 Out 0 175 22 2
