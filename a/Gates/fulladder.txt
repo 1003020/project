@@ -4,4 +4,4 @@ FullAdder
 100
 100
 xor2 xor2 2 3 1 end
-or2     and2 xor2 2 3 1     and2 2 3 end
+or2  and2 2 3   and2 xor2 2 3 1 end
