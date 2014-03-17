@@ -60,38 +60,11 @@ public class ComponentStorage {
 				for(Component c : components.values()){
 					if(c.getTime()== -2){
 						c.propagate();
-						
 					}
 				}
-				reset();
 			}
 			
 		
-	}
-	
-	public void reset(){
-		time = 0;
-	}
-	
-	public void simulate(){
-		reset();
-		Boolean updated = true;
-		while(updated){
-			updated = false;
-			for(Component c : components.values()){
-				if(c.getTime()== time){
-					updated = true;
-					c.propagate();
-				}
-			}
-			time++;
-		}
-		for(Component c : components.values()){
-			if(c.getTime()== -2){
-				c.propagate();
-				
-			}
-		}
 	}
 	
 	

@@ -74,7 +74,7 @@ public class ComponentStorage {
 	}
 	
 	public void simulate(){
-		reset();
+		time = 0;
 		Boolean updated = true;
 		while(updated){
 			updated = false;
@@ -85,12 +85,6 @@ public class ComponentStorage {
 				}
 			}
 			time++;
-		}
-		for(Component c : components.values()){
-			if(c.getTime()== -2){
-				c.propagate();
-				
-			}
 		}
 	}
 	

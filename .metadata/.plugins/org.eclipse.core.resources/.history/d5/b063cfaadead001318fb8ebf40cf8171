@@ -20,10 +20,15 @@ public class Display extends Frame implements ActionListener{
 	}
 	
 	public void createUI(int x, int y){
+		MenuBar menuBar = new MenuBar();
+		Menu propagate = new Menu("Propagate");
+		propagate.addActionListener(this);
+		menuBar.add(propagate);
 		
 		setSize(x,y);
 		center();
 		
+		this.setMenuBar(menuBar);
 		
 		addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {

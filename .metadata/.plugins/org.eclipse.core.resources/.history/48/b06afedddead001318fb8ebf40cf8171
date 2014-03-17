@@ -3,13 +3,15 @@ package UI;
 import java.awt.*;
 import java.awt.event.*;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JToolBar;
 
 import a.ComponentStorage;
 import a.Component;
 
-//Based on the ApplicationFrame class detailed in "Java 2d Graphics" by Jonathan Knudsen
 public class Display extends Frame implements ActionListener{
 	private ComponentStorage c;
 	
@@ -20,10 +22,15 @@ public class Display extends Frame implements ActionListener{
 	}
 	
 	public void createUI(int x, int y){
+		JButton button = null;
+		
+		JToolBar toolBar = new JToolBar();
+		Menu propagate = new Menu("Propagate");
+		propagate.addActionListener(this);
 		
 		setSize(x,y);
 		center();
-		
+		button = makeNavigationButton()
 		
 		addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
@@ -61,4 +68,27 @@ public class Display extends Frame implements ActionListener{
 		c.update();
 		
 	}
+	
+	protected JButton makeNavigationButton() {
+		//Look for the image.
+		String imgLocation = "images/Forward24.gif";
+		java.net.URL imageURL = Display.class.getResource(imgLocation);
+
+		//Create and initialize the button.
+		JButton button = new JButton();
+		button.setActionCommand("PROPAGATE");
+		button.addActionListener(this);
+
+		if (imageURL != null) {                      //image found
+			button.setIcon(new ImageIcon(imageURL, "propagate"));
+		} else {                                     //no image found
+			System.err.println("Resource not found: "
+					+ imgLocation);
+		}
+
+		return button;
+	}
+	
+	
+	
 }

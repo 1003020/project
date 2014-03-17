@@ -3,27 +3,38 @@ package UI;
 import java.awt.*;
 import java.awt.event.*;
 
+import java.net.URL;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
+import javax.swing.JToolBar;
 
 import a.ComponentStorage;
 import a.Component;
 
-//Based on the ApplicationFrame class detailed in "Java 2d Graphics" by Jonathan Knudsen
 public class Display extends Frame implements ActionListener{
 	private ComponentStorage c;
+	private CircuitDraw d;
 	
 	public Display(int x, int y, ComponentStorage c){
 		super();
 		this.c = c;
-		createUI(x,y);
+		createUI(x,y, c);
 	}
 	
-	public void createUI(int x, int y){
+	public void createUI(int x, int y, ComponentStorage c){
+		JButton button = null;
+		
+		JToolBar toolBar = new JToolBar();
 		
 		setSize(x,y);
 		center();
-		
+		button = makeNavigationButton();
+		toolBar.add(button);
+		this.add(toolBar);
+		d = new CircuitDraw(x, y, c);
+		this.add(d);
 		
 		addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
@@ -40,13 +51,7 @@ public class Display extends Frame implements ActionListener{
 		setLocation(x,y);
 	}
 	
-	public void draw(ComponentStorage c, Graphics g){
-		Graphics2D g2 = (Graphics2D)g;
-		for (Component comp : c.getComponents().values()){
-			comp.draw(g2);
-		}
-		
-	}
+
 	
 	@Override
 	public void paint(Graphics g){
@@ -57,8 +62,23 @@ public class Display extends Frame implements ActionListener{
 	}
 
 	@Override
-	public void actionPerformed(ActionEvent arg0) {
+	public void actionPerformed(ActionEvent e) {
 		c.update();
 		
 	}
+	
+	protected JButton makeNavigationButton() {
+
+		//Create and initialize the button.
+		JButton button = new JButton();
+		button.setActionCommand("PROPAGATE");
+		button.addActionListener(this);
+
+		button.setText("prop");
+
+		return button;
+	}
+	
+	
+	
 }

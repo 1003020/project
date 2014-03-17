@@ -10,7 +10,7 @@ import a.ComponentStorage;
 import a.Component;
 
 //Based on the ApplicationFrame class detailed in "Java 2d Graphics" by Jonathan Knudsen
-public class Display extends Frame implements ActionListener{
+public class Display extends Frame{
 	private ComponentStorage c;
 	
 	public Display(int x, int y, ComponentStorage c){
@@ -20,10 +20,13 @@ public class Display extends Frame implements ActionListener{
 	}
 	
 	public void createUI(int x, int y){
-		
+		MenuBar menuBar = new MenuBar();
+		Menu propagate = new Menu("Propagate");
+		menuBar.add(propagate);
 		setSize(x,y);
 		center();
 		
+		this.setMenuBar(menuBar);
 		
 		addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
@@ -54,11 +57,5 @@ public class Display extends Frame implements ActionListener{
 		for(Component comp : c.getComponents().values()){
 			comp.draw(g2);
 		}
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		c.update();
-		
 	}
 }
