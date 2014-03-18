@@ -8,7 +8,6 @@ import java.util.Scanner;
 import java.util.Stack;
 
 import Parser.FileRead;
-import UI.Control;
 import UI.Display;
 
 public class Simulation {
@@ -156,9 +155,7 @@ public class Simulation {
 					}
 				}
 				d = new Display(1024,1024, gates);
-				Control control = new Control(gates, d);
 				d.setVisible(true);
-				control.setVisible(true);
 			}
 			
 			else if(input.equals("reset")){
