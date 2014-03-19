@@ -1,0 +1,26 @@
+1 In 0 50
+2 In 0 150
+3 In 0 315
+4 Wire point 50 75 point 100 75 end 1 1
+5 Wire point 100 75 point 125 75 end 4 1
+6 Wire point 100 75 point 100 375 point 125 375 end 4 1
+7 Wire point 50 175 point 75 175 end 2 1
+8 Wire point 75 175 point 75 105 point 125 105 end 7 1
+9 Wire point 75 175 point 75 405 point 125 405 end 7 1
+10 Wire point 50 340 point 190 340 end 3 1
+11 Wire point 190 340 point 250 340 end 10 1
+12 Wire point 190 340 point 190 120 point 250 120 end 10 1
+13 Xor 125 65 5 1 8 1
+14 And 125 365 6 1 9 1
+15 Wire point 175 90 point 200 90 end 13 1
+16 Wire point 200 90 point 250 90 end 15 1
+17 Wire point 200 90 point 200 310 point 250 310 end 13 1
+18 Xor 250 80 16 1 12 1
+19 And 250 300 17 1 11 1
+20 Wire point 300 105 point 400 105 end 18 1
+21 Wire point 300 325 point 310 325 point 310 360 point 325 360 end 19 1
+22 Wire point 175 390 point 325 390 end 14 1
+23 Or 325 350 21 1 22 1
+24 Wire point 375 375 point 400 375 end 23 1
+25 Out 400 80 20 1
+26 Out 400 350 24 1

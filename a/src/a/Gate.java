@@ -77,7 +77,13 @@ public class Gate extends Component{
 				}
 			}
 			if (this.time == -1 && b){
-				time = i + 1;
+				int max = 0;
+				for(Signal s : inputs){
+					if(s.getInput().getTime() > max){
+						max = s.getInput().getTime();
+					}
+				}
+				this.time = max + 1;
 				for(Signal s : outputs){
 					s.setup(this.time);
 				}
