@@ -46,6 +46,24 @@ public class ComponentStorage {
 		return unusedNumbers;
 	}
 	
+	public void setup(){
+		for(Component c : components.values()){
+			if(c.getName().equals("In")){
+				c.setup(0);
+			}
+		}
+		for(Component c : components.values()){
+			if(c.getTime() == -1 && !c.getName().equals("Wire")){
+				c.feedBackSetup();
+			}
+		}
+		for(Component c : components.values()){
+			if(c.getTime() == -1 && c.getName().equals("Wire")){
+				c.feedBackSetup();
+			}
+		}
+	}
+	
 	public void update(){
 		
 			Boolean updated = false;
@@ -59,7 +77,7 @@ public class ComponentStorage {
 			if(!updated){
 				for(Component c : components.values()){
 					if(c.getTime()== -2){
-						c.propagate();
+						((Gate)c).rundff();
 						
 					}
 				}
@@ -88,7 +106,7 @@ public class ComponentStorage {
 		}
 		for(Component c : components.values()){
 			if(c.getTime()== -2){
-				c.propagate();
+				((Gate) c).rundff();
 				
 			}
 		}

@@ -38,6 +38,10 @@ public class Wire extends Component{
 		}
 	}
 	
+	public void feedBackSetup(){
+		this.time = inputs[0].getInput().getTime();
+	}
+	
 	public void propagate(){
 		outputs[0].setBinaryValue(inputs[0].isBinaryValue());
 		for(Signal s : outputs){

@@ -1,4 +1,17 @@
-1 And 100 100
-2 Not 150 150
-3 And 200 200
-4 Or 50 50
+1 And 150 100 5 1 7 1 
+2 Not 150 175 5 1
+3 And 225 250 2 1 6 1
+4 Or 300 150 1 1 3 1
+5 In 0 50
+6 In 0 150
+7 In 0 250
+8 Out 400 150 4 1
+9 Wire point 50 75 point 100 75 point 100 110 end 5 1
+10 Wire point 100 110 point 150 110 end 9 1
+11 Wire point 100 110 point 100 200 point 150 200 end 9 1
+12 Wire point 50 175 point 75 175 point 75 290 point 225 290 end 6 1
+13 Wire point 50 275 point 120 275 point 120 140 point 150 140 end 7 1
+14 Wire point 200 200 point 210 200 point 210 260 point 225 260 end 2 1
+15 Wire point 200 125 point 290 125 point 290 160 point 300 160 end 1 1
+16 Wire point 275 275 point 290 275 point 290 190 point 300 190 end 3 1
+17 Wire point 350 175 point 400 175 end 4 1

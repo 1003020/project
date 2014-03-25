@@ -64,7 +64,7 @@ public class Gate extends Component{
 		else if(this.name.equals("dff")){
 			this.time = -2;
 			for (Signal s : outputs){
-				s.setup(time+1);
+				s.setup(i+1);
 			}
 		}
 		else{
@@ -92,8 +92,21 @@ public class Gate extends Component{
 		
 	}
 	
+	public void feedBackSetup(){
+		int max = 0;
+		for(Signal s : inputs){
+			if(s.getInput().getTime() > max){
+				max = s.getInput().getTime();
+			}
+		}
+		this.time = max + 1;
+	}
+	
 	public void propagate(){
 		if(name.equals("In")){
+			
+		}
+		else if(name.equals("dff")){
 			
 		}
 		else{
@@ -102,6 +115,12 @@ public class Gate extends Component{
 				s.propagate();
 			}
 		}
+	}
+	
+	public void rundff(){
+		this.runLogic();
+		
+		
 	}
 	
 	public void pulse(){
@@ -161,7 +180,9 @@ public class Gate extends Component{
 	
 	public void draw(Graphics2D g){
 		g.draw(new Rectangle2D.Double(topLeftCorner.x,topLeftCorner.y, bottomRightCorner.x, bottomRightCorner.y));
-		g.drawChars(name.toCharArray(), 0, name.length(), (int) (topLeftCorner.x + (bottomRightCorner.x/2) - 20), (int) (topLeftCorner.y + (bottomRightCorner.y/2)));
+		String info = name + " " + identifier;
+		g.drawChars(info.toCharArray(), 0, info.length(), (int) (topLeftCorner.x + (bottomRightCorner.x/2) - 20), 
+				(int) (topLeftCorner.y + (bottomRightCorner.y/2)));
 	}
 	
 	

@@ -13,11 +13,7 @@ public class Component {
 	protected Signal[] inputs;
 	protected Signal[] outputs;
 	
-	public Component(){
-		identifier = -1;
-		inputs = new Signal[1];
-		outputs = new Signal[1];
-	}
+
 	
 	public Component(int id, int inputNum, int outputNum){
 		identifier = id;
@@ -121,6 +117,10 @@ public class Component {
 
 	public void setPath(ArrayList<java.awt.geom.Point2D.Double> path) {
 		// TODO Auto-generated method stub
+		
+	}
+	
+	public void feedBackSetup(){
 		
 	}
 	

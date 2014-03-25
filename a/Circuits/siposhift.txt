@@ -1,0 +1,17 @@
+1 In 50 100
+2 Wire point 100 125 point 150 125 end 1 1
+3 dff 150 100 2 1
+4 Wire point 200 125 point 250 125 end 3 1
+5 dff 250 100 4 1
+6 Wire point 300 125 point 350 125 end 5 1
+7 dff 350 100 6 1
+8 Wire point 400 125 point 450 125 end 7 1
+9 dff 450 100 8 1
+10 Wire point 500 125 point 550 125 end 9 1
+11 Out 550 100 10 1
+12 Wire point 225 125 point 225 175 end 3 1
+13 Wire point 325 125 point 325 175 end 5 1
+14 Wire point 425 125 point 425 175 end 7 1
+15 Out 200 175 12 1
+16 Out 300 175 13 1
+17 Out 400 175 14 1

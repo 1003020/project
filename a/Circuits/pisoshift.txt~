@@ -1,0 +1,34 @@
+1 In 0 100
+2 In 50 50
+3 In 200 50
+4 In 500 50
+6 Wire point 50 125 point 750 125 end 1 1
+7 Wire point 75 100 point 75 450 point 200 450 end 2 1
+8 Wire point 110 125 point 110 160 point 120 160 end 6 1
+9 Not 120 135 8 1
+10 Wire point 170 160 point 780 160 point 780 230 point 820 230 end 9 1
+11 dff 200 425 7 1
+12 Nand 230 160 16 1 15 1
+13 Nand 230 210 17 1 18 1
+14 Nand 300 185 19 1 20 1
+15 Wire point 180 160 point 180 200 point 230 200 end 10 1
+16 Wire point 225 100 point 225 170 point 230 170 end 3 1
+17 Wire point 110 160 point 110 220 point 230 220 end 1 1
+18 Wire point 250 450 point 270 450 point 270 400 point 200 400 point 200 250 point 230 250 end 11 1
+19 Wire point 280 185 point 290 185 point 290 195 point 300 195 end 12 1
+20 Wire point 280 235 point 290 235 point 290 220 point 300 220 end 13 1
+21 Wire point 350 210 point 400 210 point 400 450 point 500 450 end 14 1
+22 dff 500 425 21 1
+23 Nand 530 160 28 1 27 1
+24 Nand 530 210 26 1 35 1
+25 Nand 600 185 23 1 35 1
+26 Wire point 480 125 point 480 220 point 530 220 end 6 1
+27 Wire point 490 160 point 490 200 point 530 200 end 10 1
+28 Wire point 525 100 point 525 170 point 530 170 end 4 1
+29 Wire point 580 185 point 590 185 point 590 195 point 600 195 end 23 1
+30 Wire point 580 235 point 590 235 point 590 225 point 600 225 end 24 1
+31 Wire point 650 210 point 700 210 end 25 1
+32 dff 700 185 31 1
+33 Wire point 750 210 point 800 210 end 32 1
+34 Out 800 185 33 1
+35 Wire point 550 450 point 570 450 point 570 400 point 500 400 point 500 250 point 530 250 end 22 1

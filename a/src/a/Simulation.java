@@ -146,15 +146,7 @@ public class Simulation {
 			else if(input.equals("load")){
 				input = inputScanner.next();
 				gates = FileRead.loadCircuit(input, gateTypes);
-				
-				for(Component c : gates.getComponents().values()){
-					
-				}
-				for(Component c : gates.getComponents().values()){
-					if(c.getName().equals("In")){
-						c.setup(0);
-					}
-				}
+				gates.setup();
 				d = new Display(1024,1024, gates);
 				Control control = new Control(gates, d);
 				d.setVisible(true);
